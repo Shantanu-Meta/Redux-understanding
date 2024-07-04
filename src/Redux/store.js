@@ -34,7 +34,9 @@ const combineReducer = combineReducers({ // as we have multiple reducers we need
     counter: counterReducer,
     counter2: counterReducer2
 });
-//* IF this store gets a action as {type: "INCREMENT"} from dispatch(), it will circulate to all reducers and the reducers having such action will update states.
+//* IF this store gets a action as {type: "INCREMENT"} from dispatch(), it will circulate to all reducers and the reducers having such action will update states. Even u try to put the reducers along with their state in diff files, it will not be solved.
+
+// So we need one container[state + their reducer] and add those containers to create a store, and to update state we will use container's name -> This is the idea of Reduxjs/ToolKit, the containers are called Slice. 
 
 
 const store = createStore(combineReducer);  // create store using reducer
